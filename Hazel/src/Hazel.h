@@ -2,7 +2,7 @@
 
 // for use by Hazel Applications
 
-
+#include "stdafx.h"
 #include "Hazel/Application.h"
 #include "Hazel/Log.h"
 
