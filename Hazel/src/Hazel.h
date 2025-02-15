@@ -2,8 +2,9 @@
 
 // for use by Hazel Applications
 
-#include "stdafx.h"
+
 #include "Hazel/Application.h"
+#include "Hazel/Layer.h"
 #include "Hazel/Log.h"
 
 //-------Entry Point--------------
