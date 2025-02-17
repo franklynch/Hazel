@@ -16,14 +16,14 @@ IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
 IncludeDir["Glad"] = "Hazel/vendor/Glad/include"
 IncludeDir["ImGui"] = "Hazel/vendor/imgui"
 
-group "Dependencies"
+
 	include "Hazel/vendor/GLFW"
 	include "Hazel/vendor/Glad"
 	include "Hazel/vendor/imgui"
 
-group ""
 
-startproject "Sandbox"
+
+
 
 
 project "Hazel"
@@ -90,20 +90,20 @@ project "Hazel"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "On"
 	
 
 	filter "configurations:Release"
 		defines "HZ_Release"
 		optimize "On"
-		runtime "Release"
+		buildoptions "/MD"
 	
 
 	filter "configurations:Dist"
 		defines "HZ_Dist"
 		optimize "On"
-		runtime "Release"
+		buildoptions "/MD"
 	
 
 project "Sandbox"
@@ -149,17 +149,17 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
 		symbols "On"
-		runtime "Debug"
+		buildoptions "/MDd"
 	
 
 	filter "configurations:Release"
 		defines "HZ_Release"
 		optimize "On"
-		runtime "Release"
+		buildoptions "/MD"
 	
 
 	filter "configurations:Dist"
 		defines "HZ_Dist"
 		optimize "On"
-		runtime "Release"
+		buildoptions "/MD"
 	
