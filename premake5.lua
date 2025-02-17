@@ -16,11 +16,14 @@ IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
 IncludeDir["Glad"] = "Hazel/vendor/Glad/include"
 IncludeDir["ImGui"] = "Hazel/vendor/imgui"
 
-include "Hazel/vendor/GLFW"
-include "Hazel/vendor/Glad"
-include "Hazel/vendor/imgui"
+group "Dependencies"
+	include "Hazel/vendor/GLFW"
+	include "Hazel/vendor/Glad"
+	include "Hazel/vendor/imgui"
 
+group ""
 
+startproject "Sandbox"
 
 
 project "Hazel"
@@ -80,33 +83,34 @@ project "Hazel"
 
 		postbuildcommands
 		{
-		
-			("{COPYFILE} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+				
+			("{COPYFILE} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
+		runtime "Debug"
 		symbols "On"
-		buildoptions "/MDd"
 	
 
 	filter "configurations:Release"
 		defines "HZ_Release"
 		optimize "On"
-		buildoptions "/MD"
+		runtime "Release"
 	
 
 	filter "configurations:Dist"
 		defines "HZ_Dist"
 		optimize "On"
-		buildoptions "/MD"
+		runtime "Release"
 	
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 	
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -145,17 +149,17 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
 		symbols "On"
-		buildoptions "/MDd"
+		runtime "Debug"
 	
 
 	filter "configurations:Release"
 		defines "HZ_Release"
 		optimize "On"
-		buildoptions "/MD"
+		runtime "Release"
 	
 
 	filter "configurations:Dist"
 		defines "HZ_Dist"
 		optimize "On"
-		buildoptions "/MD"
+		runtime "Release"
 	
