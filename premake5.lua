@@ -137,7 +137,8 @@ project "Sandbox"
 
 	defines
 	{
-		"HZ_PLATFORM_WINDOWS"
+		"HZ_PLATFORM_WINDOWS",
+		"IMGUI_API=__declspec(dllexport)"
 	}
 
 	links
