@@ -1,6 +1,7 @@
 workspace "Hazel"
 	architecture "x64"
 	startproject "Sandbox"
+		
 
 	configurations
 	{
@@ -23,8 +24,10 @@ IncludeDir["glm"] = "Hazel/vendor/glm"
 	
 project "Hazel"
 		location "Hazel"
-		kind "SharedLib"
+		kind "StaticLib"
 		language "C++"
+		cppdialect "C++17"
+		staticruntime "on"
 
 		targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 		objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -66,8 +69,6 @@ project "Hazel"
 	
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 		buildoptions { "/utf-8" }
 	
@@ -77,39 +78,40 @@ project "Hazel"
 		{
 			"HZ_PLATFORM_WINDOWS",
 			"HZ_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
+			"GLFW_INCLUDE_NONE",
+			"_CRT_SECURE_NO_WARNINGS"
+			
 		}
 
-		postbuildcommands
-		{
-				
-			("{COPYFILE} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-		}
+	
 
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 	
 
 	filter "configurations:Release"
 		defines "HZ_Release"
-		optimize "On"
-		buildoptions "/MD"
+		runtime "Release"
+		optimize "on"
+		
 	
 
 	filter "configurations:Dist"
 		defines "HZ_Dist"
-		optimize "On"
-		buildoptions "/MD"
+		runtime "Release"
+		optimize "on"
+		
 	
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 	
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -129,7 +131,7 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
+		
 		staticruntime "On"
 		systemversion "latest"
 		buildoptions { "/utf-8" }
@@ -138,7 +140,7 @@ project "Sandbox"
 	defines
 	{
 		"HZ_PLATFORM_WINDOWS",
-		"IMGUI_API=__declspec(dllexport)"
+	
 	}
 
 	links
@@ -149,18 +151,19 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		symbols "On"
-		buildoptions "/MDd"
+		runtime "Debug"
+		symbols "on"
+		
 	
 
 	filter "configurations:Release"
 		defines "HZ_Release"
-		optimize "On"
-		buildoptions "/MD"
+		runtime "Release"
+		optimize "on"
+		
 	
 
 	filter "configurations:Dist"
 		defines "HZ_Dist"
-		optimize "On"
-		buildoptions "/MD"
-	
+		runtime "Release"
+		optimize "on"

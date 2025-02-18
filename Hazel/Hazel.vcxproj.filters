@@ -10,8 +10,8 @@
     <Filter Include="src\Hazel\Events">
       <UniqueIdentifier>{D495B311-C08E-D263-E9C0-B7E8D518B26F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\ImGui">
-      <UniqueIdentifier>{170E22B3-8378-D629-CCB6-87CF3860B47E}</UniqueIdentifier>
+    <Filter Include="src\Hazel\ImGui">
+      <UniqueIdentifier>{1AE138B3-866C-A677-8F7D-296CFB870278}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
@@ -66,6 +66,9 @@
     <ClInclude Include="src\Hazel\Events\MouseEvent.h">
       <Filter>src\Hazel\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hazel\ImGui\ImGuiLayer.h">
+      <Filter>src\Hazel\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hazel\Input.h">
       <Filter>src\Hazel</Filter>
     </ClInclude>
@@ -86,9 +89,6 @@
     </ClInclude>
     <ClInclude Include="src\Hazel\Window.h">
       <Filter>src\Hazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ImGui\ImGuiLayer.h">
-      <Filter>src\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1358,6 +1358,12 @@
     <ClCompile Include="src\Hazel\Application.cpp">
       <Filter>src\Hazel</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hazel\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Hazel\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hazel\ImGui\ImGuiLayer.cpp">
+      <Filter>src\Hazel\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hazel\Layer.cpp">
       <Filter>src\Hazel</Filter>
     </ClCompile>
@@ -1366,12 +1372,6 @@
     </ClCompile>
     <ClCompile Include="src\Hazel\Log.cpp">
       <Filter>src\Hazel</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ImGui\ImGuiBuild.cpp">
-      <Filter>src\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ImGui\ImGuiLayer.cpp">
-      <Filter>src\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
